@@ -7,9 +7,7 @@ import com.example.demo.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- * Created by jjmendoza on 6/9/2018.
- */
+
 @Service
 public class PersonServiceImpl implements PersonService {
 

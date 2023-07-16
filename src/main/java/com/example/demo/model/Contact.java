@@ -1,12 +1,19 @@
 package com.example.demo.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
-/**
- * Created by jjmendoza on 31/8/2018.
- */
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
+@Table(name="contact")
 public class Contact {
 
     @Id
@@ -19,7 +26,7 @@ public class Contact {
     @NotBlank
     private String contactName;
 
-    public Long getId() {
+/*    public Long getId() {
         return id;
     }
 
@@ -41,5 +48,5 @@ public class Contact {
 
     public void setContactName(String contactName) {
         this.contactName = contactName;
-    }
+    }*/
 }
