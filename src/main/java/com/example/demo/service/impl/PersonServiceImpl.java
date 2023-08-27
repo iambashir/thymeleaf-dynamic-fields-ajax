@@ -7,6 +7,9 @@ import com.example.demo.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 
 @Service
 public class PersonServiceImpl implements PersonService {
@@ -32,5 +35,23 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public void removeContact(Person person, Integer contactIndex) {
         person.getContactList().remove(contactIndex.intValue());
+    }
+
+    @Override
+    public List<Person> getAllData() {
+       return (List<Person>) personRepository.findAll();
+
+    }
+
+    @Override
+    public Optional<Person> editPerson(Long id) {
+        return personRepository.findById(id);
+    }
+
+    @Override
+    public Person updatePerson(Person person) {
+        return personRepository.save(person);
+
+
     }
 }

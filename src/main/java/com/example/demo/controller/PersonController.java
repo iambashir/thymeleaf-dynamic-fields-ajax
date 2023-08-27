@@ -14,9 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 
-/**
- * Created by jjmendoza on 31/8/2018.
- */
 @Controller
 public class PersonController {
 
@@ -51,6 +48,14 @@ public class PersonController {
             model.addAttribute("successMessage", "Person saved successfully!");
         }
 
-        return "index";
+        return "redirect:/get";
     }
+
+    @GetMapping("/get")
+    public String allData(Model model){
+        model.addAttribute("getAllData", personService.getAllData());
+        return "/list";
+    }
+
+
 }

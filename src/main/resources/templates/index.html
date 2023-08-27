@@ -14,8 +14,9 @@
             <div class="col-lg-8">
                 <form method="post" action="" th:object="${person}" class="mb-3">
                     <input type="hidden" th:field="${person.id}">
-
-                    <h3 class=" mb-3">Personal Information</h3>
+                    <h3 class=" mb-3">Create Test</h3>
+                    <a class="btn btn-info btn-sm" th:href="@{/get}"> Back to the list </a>
+                    <hr>
                     <div class="row">
                         <div class="col">
                             <div class="form-group row">
@@ -74,13 +75,20 @@
                                             <div th:if="${#fields.hasErrors('${person.contactList[__${rowStat.index}__].contactName}')}" class="invalid-feedback" th:errors="${person.contactList[__${rowStat.index}__].contactName}"></div>
                                         </td>
                                         <td>
+                                            <button type="button" name="addContact" class="btn btn-outline-success" data-update-contacts-url="/addContact">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                        </td>
+                                        <td>
                                             <div class="btn-group">
                                                 <button type="button" name="removeContact" th:value="${rowStat.index}" class="btn btn-outline-danger" data-update-contacts-url="/removeContact">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
                                             </div>
                                         </td>
+
                                     </tr>
+
                                     </tbody>
                                 </table>
                             </div>
