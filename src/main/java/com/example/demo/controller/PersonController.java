@@ -1,18 +1,18 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.Contact;
 import com.example.demo.model.Person;
-import com.example.demo.repository.PersonRepository;
 import com.example.demo.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
 public class PersonController {
@@ -55,6 +55,19 @@ public class PersonController {
     public String allData(Model model){
         model.addAttribute("getAllData", personService.getAllData());
         return "/list";
+    }
+
+
+    /**-------- Edit employee -----------*/
+    @GetMapping("/edit/{id}")
+    public String showEditForm(@PathVariable Long id, Model model) {
+        try {
+            Optional<Person> person = personService.editPerson(id);
+            model.addAttribute("person", person);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "edit";
     }
 
 
