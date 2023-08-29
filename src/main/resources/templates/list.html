@@ -54,7 +54,10 @@
 
             </ul>
         </td>
-        <td> <a th:href="@{/edit/{id}(id=${info.id})}"  class="btn btn-success" > Edit </a> </td>
+        <td>
+            <a th:href="@{/edit/{id}(id=${info.id})}"  class="btn btn-success" > Edit </a>
+            <a th:href="@{/delete/{id}(id=${info.id})}"  class="btn btn-danger" > Delete </a>
+        </td>
 
 
     </tr>

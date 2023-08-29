@@ -58,7 +58,7 @@ public class PersonController {
     }
 
 
-    /**-------- Edit employee -----------*/
+    /**-------- Edit Person -----------*/
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable Long id, Model model) {
         try {
@@ -68,6 +68,15 @@ public class PersonController {
             e.printStackTrace();
         }
         return "edit";
+    }
+
+    /**---- Delete person --------*/
+
+    @GetMapping("/delete/{id}")
+    public String deletePerson(@PathVariable Long id){
+        personService.deletePerson(id);
+        return "redirect:/get";
+
     }
 
 
