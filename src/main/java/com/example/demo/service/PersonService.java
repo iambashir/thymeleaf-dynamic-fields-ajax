@@ -20,4 +20,11 @@ public interface PersonService {
 
 
 
+    List<Person> getAllPersons();
+    Person getPersonById(Long id);
+    void savePersons(Person person);
+
+
+
+
 }

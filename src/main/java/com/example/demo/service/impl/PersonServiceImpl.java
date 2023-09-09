@@ -59,4 +59,22 @@ public class PersonServiceImpl implements PersonService {
     public void deletePerson(Long id) {
         personRepository.deleteById(id);
     }
+
+
+
+
+    @Override
+    public List<Person> getAllPersons() {
+        return null;
+    }
+
+    @Override
+    public Person getPersonById(Long id) {
+        return null;
+    }
+
+    @Override
+    public void savePersons(Person person) {
+
+    }
 }
