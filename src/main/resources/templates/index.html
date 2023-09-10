@@ -12,7 +12,7 @@
     <div class="container shadow mt-5 bg-light py-5">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <form method="post" action="" th:object="${person}" class="mb-3">
+                <form method="post" th:action="@{/save}" th:object="${person}" class="mb-3">
                     <input type="hidden" th:field="${person.id}">
                     <h3 class=" mb-3">Create Test</h3>
                     <a class="btn btn-info btn-sm" th:href="@{/get}"> Back to the list </a>

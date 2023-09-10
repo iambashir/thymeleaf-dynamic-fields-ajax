@@ -26,6 +26,14 @@ public class PersonController {
         return "index";
     }
 
+    /**------- Get all data -------*/
+    @GetMapping("/get")
+    public String allData(Model model){
+        model.addAttribute("getAllData", personService.getAllData());
+        return "list";
+    }
+
+
     @PostMapping("/addContact")
     public String addContact(Person person){
         personService.addContact(person);
@@ -38,7 +46,7 @@ public class PersonController {
         return "index :: contacts"; // returning the updated section
     }
 
-    @PostMapping("/")
+    @PostMapping("/save")
     public String save(@Valid Person person, BindingResult bindingResult, Model model){
 
         if(bindingResult.hasErrors()){
@@ -51,19 +59,14 @@ public class PersonController {
         return "redirect:/get";
     }
 
-    @GetMapping("/get")
-    public String allData(Model model){
-        model.addAttribute("getAllData", personService.getAllData());
-        return "/list";
-    }
-
 
     /**-------- Edit Person -----------*/
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable Long id, Model model) {
         try {
-            Optional<Person> person = personService.editPerson(id);
-            model.addAttribute("person", person);
+            //Optional<Person> person = personService.editPerson(id);
+            //model.addAttribute("person", person);
+            personService.editPerson(id).ifPresent(o -> model.addAttribute("person", o));
         } catch (Exception e) {
             e.printStackTrace();
         }
