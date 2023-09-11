@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.PersonDto;
 import com.example.demo.model.Person;
 import com.example.demo.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,24 +36,24 @@ public class PersonController {
 
 
     @PostMapping("/addContact")
-    public String addContact(Person person){
-        personService.addContact(person);
+    public String addContact(PersonDto personDto){
+        personService.addContact(personDto);
         return "index :: contacts"; // returning the updated section
     }
 
     @PostMapping("/removeContact")
-    public String removeContact(Person person, @RequestParam("removeContact") Integer contactIndex){
-        personService.removeContact(person, contactIndex);
+    public String removeContact(PersonDto personDto, @RequestParam("removeContact") Integer contactIndex){
+        personService.removeContact(personDto, contactIndex);
         return "index :: contacts"; // returning the updated section
     }
 
     @PostMapping("/save")
-    public String save(@Valid Person person, BindingResult bindingResult, Model model){
+    public String save(@Valid PersonDto personDto, BindingResult bindingResult, Model model){
 
         if(bindingResult.hasErrors()){
             model.addAttribute("errorMessage", "The submitted data has errors.");
         }else {
-            model.addAttribute("person", personService.savePerson(person));
+            model.addAttribute("person", personService.savePerson(personDto));
             model.addAttribute("successMessage", "Person saved successfully!");
         }
 
