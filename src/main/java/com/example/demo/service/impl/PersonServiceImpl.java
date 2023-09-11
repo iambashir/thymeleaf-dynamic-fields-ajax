@@ -4,6 +4,7 @@ import com.example.demo.model.Contact;
 import com.example.demo.model.Person;
 import com.example.demo.repository.PersonRepository;
 import com.example.demo.service.PersonService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,10 +13,11 @@ import java.util.Optional;
 
 
 @Service
+@RequiredArgsConstructor
 public class PersonServiceImpl implements PersonService {
 
     @Autowired
-    private PersonRepository personRepository;
+    private final PersonRepository personRepository;
 
     @Override
     public Person createPerson() {
@@ -49,19 +51,14 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public Person updatePerson(Person person) {
-        return personRepository.save(person);
-
-
-    }
-
-    @Override
     public void deletePerson(Long id) {
         personRepository.deleteById(id);
     }
 
-
-
+/*    @Override
+    public Person updatePerson(Person person) {
+        return personRepository.save(person);
+    }
 
     @Override
     public List<Person> getAllPersons() {
@@ -76,5 +73,6 @@ public class PersonServiceImpl implements PersonService {
     @Override
     public void savePersons(Person person) {
 
-    }
+    }*/
+
 }

@@ -12,19 +12,12 @@ public interface PersonService {
     void addContact(Person person);
     void removeContact(Person person, Integer contactIndex);
     List<Person> getAllData();
-
     Optional<Person> editPerson(Long id);
-    Person updatePerson(Person person);
-
     void deletePerson(Long id);
 
-
-
-    List<Person> getAllPersons();
-    Person getPersonById(Long id);
-    void savePersons(Person person);
-
-
-
+    //Person updatePerson(Person person);
+    //List<Person> getAllPersons();
+    //Person getPersonById(Long id);
+    //void savePersons(Person person);
 
 }
