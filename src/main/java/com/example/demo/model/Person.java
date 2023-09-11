@@ -17,11 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name="person")
-public class Person {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Person extends BaseModel{
 
     @NotBlank
     private String name;

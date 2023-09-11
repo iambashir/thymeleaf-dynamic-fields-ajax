@@ -14,11 +14,7 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 @Entity
 @Table(name="contact")
-public class Contact {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Contact extends BaseModel {
 
     @NotBlank
     private String contactType;

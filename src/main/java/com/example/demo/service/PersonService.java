@@ -14,8 +14,8 @@ public interface PersonService {
     List<Person> getAllData();
 
     Optional<Person> editPerson(Long id);
+    /**---- For rest service ----*/
     Person updatePerson(Person person);
-
     void deletePerson(Long id);
 
 
