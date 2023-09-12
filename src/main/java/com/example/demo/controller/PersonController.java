@@ -36,14 +36,14 @@ public class PersonController {
 
 
     @PostMapping("/addContact")
-    public String addContact(PersonDto personDto){
-        personService.addContact(personDto);
+    public String addContact(Person person){
+        personService.addContact(person);
         return "index :: contacts"; // returning the updated section
     }
 
     @PostMapping("/removeContact")
-    public String removeContact(PersonDto personDto, @RequestParam("removeContact") Integer contactIndex){
-        personService.removeContact(personDto, contactIndex);
+    public String removeContact(Person person, @RequestParam("removeContact") Integer contactIndex){
+        personService.removeContact(person, contactIndex);
         return "index :: contacts"; // returning the updated section
     }
 

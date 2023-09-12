@@ -36,13 +36,13 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public void addContact(PersonDto personDto) {
-        modelMapper.map(personDto.getContactList().add(new Contact()), Person.class);
+    public void addContact(Person person) {
+        person.getContactList().add(new Contact());
     }
 
     @Override
-    public void removeContact(PersonDto personDto, Integer contactIndex) {
-        modelMapper.map(personDto.getContactList().remove(contactIndex.intValue()), Person.class);
+    public void removeContact(Person person, Integer contactIndex) {
+        person.getContactList().remove(contactIndex.intValue());
     }
 
     @Override
@@ -53,10 +53,8 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public Optional<PersonDto> editPerson(Long id) {
-     Person personEdit = personRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Person not found"));
-        return modelMapper.map(personEdit, (Type) PersonDto.class);
-       // return Optional.empty();
+    public Optional<Person> editPerson(Long id) {
+        return personRepository.findById(id);
     }
 
     @Override

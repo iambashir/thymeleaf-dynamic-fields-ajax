@@ -10,10 +10,10 @@ import java.util.Optional;
 public interface PersonService {
     PersonDto createPerson();
     Object savePerson(PersonDto personDto);
-    void addContact(PersonDto personDto);
-    void removeContact(PersonDto personDto, Integer contactIndex);
+    void addContact(Person person);
+    void removeContact(Person person, Integer contactIndex);
     List<PersonDto> getAllData();
-    Optional<PersonDto> editPerson(Long id);
+    Optional<Person> editPerson(Long id);
     void deletePerson(Long id);
 
     /**---- For rest service ----*/
